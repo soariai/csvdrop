@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSVdrop – Nostalgic CSV Consolidator</title>
+  <!-- Nostalgic old Macintosh styling -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Papa Parse library for CSV parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <div class="window">
+    <div class="title-bar">
+      <div class="buttons">
+        <span class="button close"></span>
+        <span class="button minimize"></span>
+        <span class="button maximize"></span>
+      </div>
+      <span class="title">CSVdrop</span>
+    </div>
+    <div class="content">
+      <section>
+        <h2>Modify a CSV</h2>
+        <p>Select a CSV file to preview and edit. Use the checkboxes in the header row to enable editing for individual columns. Adjust values directly in the table and download your updated CSV when you're finished.</p>
+        <input type="file" id="csvFileInput" accept=".csv" />
+        <div id="tableContainer"></div>
+        <button id="downloadButton" style="display: none;">Download Modified CSV</button>
+      </section>
+      <hr />
+      <section>
+        <h2>Combine CSVs</h2>
+        <p>You can also combine multiple CSV files into a single, deduplicated CSV. Select two or more files below and click "Combine and Download."</p>
+        <input type="file" id="combineInput" multiple accept=".csv" />
+        <button id="combineButton">Combine and Download</button>
+      </section>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
