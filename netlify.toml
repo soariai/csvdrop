@@ -1,0 +1,8 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/api/process-csv"
+  to = "/.netlify/functions/process-csv"
+  status = 200
