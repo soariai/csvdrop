@@ -1,0 +1,14 @@
+{
+  "name": "csvdrop",
+  "version": "1.0.0",
+  "description": "A nostalgic CSV consolidator web app with editable columns and serverless backend.",
+  "main": "netlify/functions/process-csv.js",
+  "scripts": {
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "formidable": "^2.0.1",
+    "json2csv": "^5.0.7",
+    "papaparse": "^5.4.1"
+  }
+}
