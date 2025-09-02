@@ -1,153 +1,179 @@
-/*
- * CSVdrop Stylesheet
- *
- * A nostalgic, old Macintosh–themed look and feel for the CSVdrop web app.
- * The palette takes inspiration from the beige and greys of early Mac OS interfaces.
- */
-
+/* CSVdrop stylesheet - Retro Macintosh theme */
 body {
-  background-color: #d9d9d9;
-  font-family: "Geneva", "Arial", sans-serif;
+  background-color: #EDEDED;
+  font-family: "Chicago", "Geneva", "Arial", sans-serif;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
   margin: 0;
   padding: 40px 20px;
-  color: #333;
+  color: #000;
 }
 
-/* Window wrapper reminiscent of classic Mac OS windows */
 .window {
   width: 100%;
   max-width: 900px;
-  background: #f5f5f5;
-  border: 2px solid #c4c4c4;
-  box-shadow: 0 4px 0 #aaaaaa, inset 0 0 0 1px #ffffff;
+  background-color: #F5F5F5;
+  border: 2px solid #000;
+  border-radius: 0;
+  padding: 0;
 }
 
 .title-bar {
-  background: linear-gradient(#e4e4e4, #c9c9c9);
-  padding: 4px 8px;
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #c4c4c4;
-  user-select: none;
+  justify-content: flex-start;
+  padding: 8px;
+  border-bottom: 2px solid #000;
+  background-color: #E0E0E0;
 }
 
-.buttons {
+.window-controls {
   display: flex;
-  gap: 6px;
-  margin-right: 10px;
+  align-items: center;
+  margin-right: 8px;
 }
 
-.button {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1px solid #777777;
-  display: inline-block;
+.window-controls .close,
+.window-controls .minimize,
+.window-controls .maximize {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: none;
+  position: relative;
+  margin-right: 4px;
 }
 
-.button.close {
-  background: #ff5f56;
+/* Hide unused buttons to match retro single close control */
+.window-controls .minimize,
+.window-controls .maximize {
+  display: none;
 }
 
-.button.minimize {
-  background: #ffbd2e;
+.window-controls .close::before,
+.window-controls .close::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 2px;
+  height: 10px;
+  background-color: #000;
 }
 
-.button.maximize {
-  background: #27c93f;
+.window-controls .close::before {
+  transform: rotate(45deg);
 }
 
-.title-bar .title {
+.window-controls .close::after {
+  transform: rotate(-45deg);
+}
+
+.title-text {
   font-weight: bold;
-  font-size: 1rem;
-  flex-grow: 1;
-  text-align: center;
+  font-size: 18px;
 }
 
 .content {
+  display: flex;
+  gap: 20px;
   padding: 20px;
 }
 
-section {
-  margin-bottom: 30px;
+/* Apply consistent styling to file and merge sections */
+.file-section,
+.merge-section {
+  flex: 1;
+  background-color: #F0F0F0;
+  border: 2px solid #000;
+  padding: 16px;
 }
 
-h2 {
+.file-section h2,
+.merge-section h2 {
   margin-top: 0;
-  font-size: 1.3rem;
-  color: #2e2e2e;
+  font-size: 16px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 4px;
 }
 
-p {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 8px 0 12px;
+.controls {
+  margin-bottom: 8px;
 }
 
-hr {
-  border: none;
-  border-top: 1px solid #c4c4c4;
-  margin: 30px 0;
+.controls label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
-/* Table styling for CSV preview */
-.csv-table {
+.controls input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  border: 2px solid #000;
+  border-radius: 0;
+  position: relative;
+  top: 4px;
+}
+
+.controls input[type="checkbox"]:checked {
+  background-color: #000;
+}
+
+button,
+input[type="file"]::file-selector-button {
+  background: none;
+  border: 2px solid #000;
+  color: #000;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+  border-radius: 0;
+}
+
+button:hover,
+input[type="file"]::file-selector-button:hover {
+  background-color: #000;
+  color: #FFF;
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
-  overflow-x: auto;
-  font-size: 0.85rem;
-}
-
-.csv-table th,
-.csv-table td {
-  border: 1px solid #b0b0b0;
-  padding: 6px;
-  text-align: left;
-}
-
-.csv-table th {
-  background: #e8e8e8;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-/* Keep header labels on a single line so they don't wrap awkwardly */
-.csv-table th span {
-  white-space: nowrap;
-}
-
-.csv-table input[type="text"] {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 4px;
-  font-size: 0.85rem;
-}
-
-/* Buttons */
-#downloadButton,
-#combineButton {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #d8d8d8;
-  border: 1px solid #a9a9a9;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-#downloadButton:hover,
-#combineButton:hover {
-  background-color: #c8c8c8;
-}
-
-input[type="file"] {
-  display: block;
   margin-top: 8px;
-  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 4px 6px;
+}
+
+th {
+  background-color: #E0E0E0;
+  font-weight: bold;
+}
+
+.ai-panel {
+  border: 2px solid #000;
+  padding: 8px;
+  margin-top: 12px;
+  background-color: #F0F0F0;
+}
+
+.ai-panel p {
+  margin: 4px 0;
+}
+
+.footer-bar {
+  border-top: 2px solid #000;
+  padding: 6px;
+  font-size: 14px;
 }
