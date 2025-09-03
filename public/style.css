@@ -75,21 +75,30 @@ body {
 .title-text {
   font-weight: bold;
   font-size: 18px;
-}
-
 .content {
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  gap: 24px;
+  padding: 24px;
 }
-
-/* Apply consistent styling to file and merge sections */
+; consistent styling to file and merge sections */
 .file-section,
 .merge-section {
   flex: 1;
   background-color: #F0F0F0;
   border: 2px solid #000;
   padding: 16px;
+  
+/* Adjust flex ratios and padding */
+.file-section {
+  flex: 2;
+  padding: 24px;
+}
+
+.merge-section {
+  flex: 1;
+  padding: 24px;
+}
+
 }
 
 .file-section h2,
